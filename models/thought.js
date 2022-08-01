@@ -1,33 +1,27 @@
 const { Schema, model } = require('mongoose');
+const moment = require('moment');
+const reactionSchema = require('./reaction');
 
 const ThoughtSchema = {
-	Thoughtname: {
+	thoughtText: {
 		type: String,
-		unique: true,
 		required: true,
-		trim: true,
+		minLength: 1,
+		maxLength: 100,
 	},
-	email: {
+	createdAt: {
+		type: Date,
+		default: Date.now,
+		get: (createdAtVal) =>
+			moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'),
+	},
+	userName: {
 		type: String,
-		unique: true,
 		required: true,
-		// Using REGEX to validate email
-		match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
 	},
-	thoughts: [
-		{
-			type: Schema.Type.ObjectId,
-			ref: 'Thoughts',
-		},
-	],
-	friends: [
-		{
-			type: Schema.Type.ObjectId,
-			ref: 'Thoughts',
-		},
-	],
+	reactions: [reactionSchema],
 };
-
+// FIND OUT HOW TO MAKE VIRTUALS
 const schema = new Schema(ThoughtSchema);
 
 const Thought = model('Thought', schema);

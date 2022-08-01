@@ -28,6 +28,8 @@ const userSchema = {
 	],
 };
 
+// need to do virtuals FIND OUT HOW
+
 const schema = new Schema(userSchema);
 
 const User = model('User', schema);
