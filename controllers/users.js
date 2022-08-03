@@ -28,7 +28,17 @@ const getUserById = async (req, res) => {
 	}
 };
 
-const createUser = (req, res) => {};
+const createUser = async (req, res) => {
+	try {
+		const user = req.body;
+		await User.create(user);
+		return res.status(200).json({ success: true });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
+};
 
 const updateUser = (req, res) => {};
 
