@@ -53,7 +53,22 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-	return res.send('deleteUser');
+	try {
+		const { id } = req.params;
+		const user = await User.findById(id);
+		if (!user) {
+			res.status(404).json({
+				message: '[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!',
+			});
+			return;
+		}
+		await User.deleteOne(user);
+		res.status(200).json({ success: true });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
 };
 
 module.exports = {
