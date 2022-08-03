@@ -40,8 +40,9 @@ const createThought = async (req, res) => {
 
 const updateThought = async (req, res) => {
 	try {
-		const thought = req.body;
-		await Thought.update(thought);
+		const thought = await Thought.findByIdAndUpdate(req.params.id, {
+			$set: req.body,
+		});
 		res.status(200).json({ success: true });
 	} catch (error) {
 		console.log(
