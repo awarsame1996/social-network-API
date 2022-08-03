@@ -1,4 +1,4 @@
-require('dontenv').config();
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -28,3 +28,4 @@ const init = async () => {
 		console.log(`server running on http://localhost:${PORT}`);
 	});
 };
+init();

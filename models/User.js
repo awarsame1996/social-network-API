@@ -12,17 +12,17 @@ const userSchema = {
 		unique: true,
 		required: true,
 		// Using REGEX to validate email
-		match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
+		match: [/^([A-Za-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
 	},
 	thoughts: [
 		{
-			type: Schema.Type.ObjectId,
-			ref: 'Thoughts',
+			type: Schema.Types.ObjectId,
+			ref: 'Thought',
 		},
 	],
 	friends: [
 		{
-			type: Schema.Type.ObjectId,
+			type: Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],

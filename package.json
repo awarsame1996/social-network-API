@@ -1,27 +1,34 @@
 {
-  "name": "social-network-api",
-  "version": "1.0.0",
-  "description": "build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list using Express.js for routing, a MongoDB database.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/awarsame1996/social-network-API.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/awarsame1996/social-network-API/issues"
-  },
-  "homepage": "https://github.com/awarsame1996/social-network-API#readme",
-  "dependencies": {
-    "express": "^4.18.1",
-    "moment": "^2.29.4",
-    "mongodb": "^4.8.1",
-    "mongoose": "^6.5.0",
-    "nodemon": "^2.0.19"
-  }
+	"name": "social-network-api",
+	"version": "1.0.0",
+	"description": "build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list using Express.js for routing, a MongoDB database.",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon src/index.js",
+		"seed": "node src/seeds/index.js",
+		"start": "node src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/awarsame1996/social-network-API.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/awarsame1996/social-network-API/issues"
+	},
+	"homepage": "https://github.com/awarsame1996/social-network-API#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"dotenv": "^16.0.1",
+		"express": "^4.18.1",
+		"moment": "^2.29.4",
+		"mongodb": "^4.8.1",
+		"mongoose": "^6.5.0",
+		"nodemon": "^2.0.19"
+	},
+	"devDependencies": {
+		"@faker-js/faker": "^7.3.0"
+	}
 }
