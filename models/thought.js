@@ -12,8 +12,7 @@ const ThoughtSchema = {
 	createdAt: {
 		type: Date,
 		default: Date.now,
-		get: (createdAtVal) =>
-			moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm'),
+		get: (createdAt) => moment(createdAt).format('MMM DD, YYYY'),
 	},
 	userName: {
 		type: String,

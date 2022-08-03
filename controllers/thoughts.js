@@ -1,7 +1,14 @@
 const { Thought, User } = require('../models');
 
-const getAllThoughts = (req, res) => {
-	return res.send('getAllThoughts');
+const getAllThoughts = async (req, res) => {
+	try {
+		const thoughts = await Thought.find({});
+		return res.json({ data: thoughts });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
 };
 
 const getThoughtById = async (req, res) => {
@@ -19,7 +26,17 @@ const getThoughtById = async (req, res) => {
 	}
 };
 
-const createThought = (req, res) => {};
+const createThought = async (req, res) => {
+	try {
+		const thought = req.body;
+		await Thought.create(thought);
+		return res.status(200).json({ success: true });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
+};
 
 const updateThought = (req, res) => {
 	return res.send('updateThought');
