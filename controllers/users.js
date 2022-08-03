@@ -40,9 +40,19 @@ const createUser = async (req, res) => {
 	}
 };
 
-const updateUser = (req, res) => {};
+const updateUser = async (req, res) => {
+	try {
+		const user = req.body;
+		await User.update(user);
+		res.status(200).json({ success: true });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
+};
 
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
 	return res.send('deleteUser');
 };
 

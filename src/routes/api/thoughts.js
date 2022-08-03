@@ -13,7 +13,7 @@ const {
 router.get('/', getAllThoughts);
 router.get('/:id', getThoughtById);
 router.post('/', createThought);
-router.put('/', updateThought);
-router.delete('/', deleteThought);
+router.put('/:id', updateThought);
+router.delete('/:id', deleteThought);
 
 module.exports = router;

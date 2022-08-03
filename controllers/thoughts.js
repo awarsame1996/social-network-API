@@ -38,11 +38,19 @@ const createThought = async (req, res) => {
 	}
 };
 
-const updateThought = (req, res) => {
-	return res.send('updateThought');
+const updateThought = async (req, res) => {
+	try {
+		const thought = req.body;
+		await Thought.update(thought);
+		res.status(200).json({ success: true });
+	} catch (error) {
+		console.log(
+			`[ERROR]:YOU WERE SUPPOSE TO FOLLOW THE TRAIN CJ!| ${error.message}`
+		);
+	}
 };
 
-const deleteThought = (req, res) => {
+const deleteThought = async (req, res) => {
 	return res.send('deleteThought');
 };
 module.exports = {
